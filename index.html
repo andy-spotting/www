@@ -27,7 +27,7 @@
 		let pin;
 		let myMap;
 		let thumbDiv = document.getElementById('thumbs');
-		let loading = document.getElementById('loadingWrapper');
+		let loadingDiv = document.getElementById('loadingWrapper');
 
 		function initMap() {
 			var nyc = {lat: 40.712784, lng: -74.005941};
@@ -96,7 +96,7 @@
 					thumb.onclick = () => { dropPin(thumb.dataset) };
 
 					thumbDiv.appendChild(thumb);
-	
+
 					if (!pin) {
 						dropPin(thumb.dataset);
 					}
@@ -115,7 +115,7 @@
 		}
 
 		function imgLoaded() {
-			loading.style.display = 'none';
+			loadingDiv.style.display = 'none';
 			thumbDiv.style.opacity = '1';
 		}
 	</script>
