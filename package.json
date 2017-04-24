@@ -1,0 +1,23 @@
+{
+  "name": "andyspotting",
+  "version": "1.0.0",
+  "homepage": "www.andyspotting.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aj-may/www.andyspotting.com"
+  },
+  "description": "Andy Spotting",
+  "license": "(MIT OR Apache-2.0)",
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^6.6.0",
+    "grunt": "^0.4.5",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-contrib-sass": "^1.0.0",
+    "grunt-contrib-watch": "^0.5.3",
+    "grunt-postcss": "^0.8.0",
+    "grunt-sass": "^2.0.0"
+  }
+}

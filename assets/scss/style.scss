@@ -1,0 +1,117 @@
+$thumbBase: 100px;
+$borderBase: 50%;
+$andyBlue: #2196f3;
+
+.center {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+html * {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+
+#map {
+	height: calc( 100vh - 100px );
+	width: 100%;
+}
+
+#rail {
+	width: 100%;
+	height: $thumbBase;
+	overflow: hidden;
+	z-index: 999;
+}
+
+#addBtnWrapper {
+	@extend .center;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	width: $thumbBase;
+	height: $thumbBase;
+	background: white;
+
+	&:before {
+		content: '';
+		position: absolute;
+		left: -$thumbBase;
+		width: $thumbBase;
+		height: $thumbBase;
+		background: linear-gradient( to right, transparent, white); 
+	}
+}
+
+#addBtn {
+	@extend .center;
+	width: 75px;
+	height: 75px;
+	background-color: $andyBlue;
+	border-radius: $borderBase;
+	color: white;
+	font-size: 33px;
+	line-height: 75px;
+
+	input {
+		font-size: 1000px;
+		opacity: 0.01;
+		cursor: pointer;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
+}
+
+#thumbs {
+	opacity: 0;
+	transition: opacity .4s linear;
+	display: flex;
+	flex-wrap: nowrap;
+	overflow: scroll;
+
+	img {
+		cursor: pointer;
+		margin: 0 10px 0 0;
+	}
+}
+
+#loadingWrapper {
+	width: 100%;
+	height: $thumbBase;
+	position: absolute;
+	bottom: 0;
+	padding: 10px;
+	overflow: hidden;
+}
+
+#loading {
+	@extend .center;
+	width: 75px;
+	height: 75px;
+	margin: auto;
+	border-radius: $borderBase;
+	border-top: 10px solid rgba(33, 150, 243, 0.2);
+	border-right: 10px solid rgba(33, 150, 243, 0.2);
+	border-bottom: 10px solid rgba(33, 150, 243, 0.2);
+	border-left: 10px solid rgba(33, 150, 243, 1);
+	transform: translateZ(0);
+	animation: spin 1s infinite linear;
+}
+
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+
+	100% {
+		transform: rotate(360deg);
+	}
+}
