@@ -48,14 +48,25 @@
 				return;
 			}
 
+			loadingDiv.style.display = 'flex';
+
 			const formData = new FormData();
 
 			formData.append('photo', file);
 
 			fetch('https://api.andyspotting.com/spottings', {
 				method: 'POST', body: formData
-			}).then(console.log)
-			.catch(console.error);
+			})
+				.then(response => response.json())
+				.then((spotting) => {
+					console.log(spotting);
+					addSpotting(spotting);
+					loadingDiv.style.display = 'none';
+				})
+				.catch((err) => {
+					alert('Something went wrong!');
+					console.error(err);
+				});
 			}
 
 		function dropPin(data) {
@@ -80,6 +91,22 @@
 			});
 
 			myMap.setZoom(14);
+		}
+
+		function addSpotting(spotting) {
+			const thumb = document.createElement('img');
+
+			thumb.src = spotting.image;
+			thumb.width = 100;
+			thumb.height = 100;
+			thumb.dataset.lat = spotting.location.latitude;
+			thumb.dataset.lng = spotting.location.longitude;
+
+			thumb.onclick = () => { dropPin(thumb.dataset) };
+
+			thumbDiv.insertBefore(thumb, thumbDiv.firstChild);
+
+			dropPin(thumb.dataset);
 		}
 
 		function getSpottings() {
