@@ -19,6 +19,17 @@ body {
 	overflow: hidden;
 }
 
+#logo {
+	position: absolute;
+	top: 60px;
+	right: 20px;
+	z-index: 9999;
+
+	@media (min-width: 600px) {
+		top: 20px;
+	}
+}
+
 #map {
 	height: calc( 100vh - 100px );
 	width: 100%;
@@ -43,10 +54,10 @@ body {
 	&:before {
 		content: '';
 		position: absolute;
-		left: -$thumbBase;
-		width: $thumbBase;
+		left: -$thumbBase / 2;
+		width: $thumbBase / 2;
 		height: $thumbBase;
-		background: linear-gradient( to right, transparent, white); 
+		background: linear-gradient( to right, rgba(255, 255, 255, 0), white );
 	}
 }
 
@@ -60,26 +71,32 @@ body {
 	font-size: 33px;
 	line-height: 75px;
 
-	input {
-		font-size: 1000px;
-		opacity: 0.01;
-		cursor: pointer;
+	.fa-camera {
 		position: absolute;
-		top: 0;
-		left: 0;
+		top: $thumbBase / 3;
+		left: $thumbBase / 3;
+	}
+
+	#fileinput {
+		width: $thumbBase;
+		height: $thumbBase;
+		opacity: 0;
+		cursor: pointer;
 	}
 }
 
 #thumbs {
-	opacity: 0;
+	width: 100%;
+	height: $thumbBase;
 	transition: opacity .4s linear;
 	display: flex;
 	flex-wrap: nowrap;
 	overflow: scroll;
+	opacity: 0;
 
 	img {
 		cursor: pointer;
-		margin: 0 10px 0 0;
+		margin: 0 5px 0 0;
 	}
 }
 
