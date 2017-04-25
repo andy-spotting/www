@@ -36,6 +36,7 @@ function handleFile(file) {
         addSpotting(spotting);
         loadingDiv.style.display = 'none';
     }).catch(function (err) {
+        loadingDiv.style.display = 'none';
         alert('Something went wrong!');
         console.error(err);
     });

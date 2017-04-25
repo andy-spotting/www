@@ -35,6 +35,7 @@ function handleFile(file) {
             loadingDiv.style.display = 'none';
         })
         .catch((err) => {
+            loadingDiv.style.display = 'none';
             alert('Something went wrong!');
             console.error(err);
         });
