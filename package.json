@@ -4,7 +4,7 @@
   "description": "Andy Spotting",
   "scripts": {
     "start": "serve .",
-    "build": "grunt",
+    "build": "grunt && babel assets/js/src -d assets/js/dist",
     "now-build": "true",
     "watch": "grunt watch",
     "deploy": "now --npm",
