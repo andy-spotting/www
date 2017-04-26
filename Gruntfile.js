@@ -27,10 +27,8 @@ module.exports = function( grunt ) {
 		},
 		clean: {
 			dist: [
-				'assets/css/style.css',
-				'assets/css/style.*.css',
-				'assets/js/script.min.js',
-				'assets/js/script.*.min.js'
+				'assets/css/*.css',
+				'assets/js/dist/*.js',
 			]
 		},
 		sass: {
