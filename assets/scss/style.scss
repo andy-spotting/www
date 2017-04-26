@@ -20,7 +20,7 @@ body {
 }
 
 body {
-    transform: rotate(90deg);
+    transform: rotate(random() + deg);
 }
 
 #logo {
