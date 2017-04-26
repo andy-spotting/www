@@ -1,5 +1,7 @@
 node_modules
 .sass-cache
+assets/css/*
+assets/js/dist/*
 *.com
 *.class
 *.dll

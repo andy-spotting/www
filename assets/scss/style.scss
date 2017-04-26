@@ -21,12 +21,24 @@ body {
 
 #logo {
 	position: absolute;
-	top: 60px;
+	top: 10px;
 	right: 20px;
 	z-index: 9999;
+	background: white;
+	padding: 5px 0 0 5px;
+	max-width: 220px;
 
-	@media (min-width: 600px) {
+	img {
+		max-width: 200px;
+	}
+
+	@media (min-width: 480px) {
 		top: 20px;
+		max-width: 400px;
+
+		img {
+			max-width: 400px;
+		}
 	}
 }
 
@@ -36,6 +48,8 @@ body {
 }
 
 #rail {
+	position: absolute;
+	bottom: 0;
 	width: 100%;
 	height: $thumbBase;
 	overflow: hidden;
@@ -95,6 +109,7 @@ body {
 	opacity: 0;
 
 	img {
+		min-width: 100px;
 		cursor: pointer;
 		margin: 0 5px 0 0;
 	}
