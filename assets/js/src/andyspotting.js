@@ -1,5 +1,8 @@
 let pin;
 let myMap;
+let lat;
+let lng;
+let userMarker;
 let thumbDiv = document.getElementById('thumbs');
 let loadingDiv = document.getElementById('loadingWrapper');
 
@@ -12,6 +15,31 @@ function initMap() {
     });
 
     getSpottings();
+
+    if (navigator.geolocation) {
+        userMarker = new google.maps.Marker({
+            clickable: false,
+            icon: new google.maps.MarkerImage('//maps.gstatic.com/mapfiles/mobile/mobileimgs2.png',
+                                              new google.maps.Size(22,22),
+                                              new google.maps.Point(0,18),
+                                              new google.maps.Point(11,11)),
+            shadow: null,
+            zIndex: 999,
+            map: myMap
+        });
+
+        navigator.geolocation.watchPosition(updatePosition);
+    }
+}
+
+function updatePosition(position) {
+    lat = position.coords.latitude;
+    lng = position.coords.longitude;
+
+    userMarker.setPosition({
+        lat: lat,
+        lng: lng,
+    });
 }
 
 function handleFile(file) {
@@ -24,6 +52,8 @@ function handleFile(file) {
     const formData = new FormData();
 
     formData.append('photo', file);
+    if (lat) formData.append('latitude', lat);
+    if (lng) formData.append('longitude', lng);
 
     fetch('https://api.andyspotting.com/spottings', {
         method: 'POST', body: formData
@@ -57,12 +87,7 @@ function dropPin(data) {
         });
     }
 
-    myMap.panTo({
-        lat: Number(data.lat),
-        lng: Number(data.lng),
-    });
-
-    myMap.setZoom(14);
+    panMapToMarkers();
 }
 
 function addSpotting(spotting) {
@@ -119,4 +144,21 @@ function getSpottings() {
 function imgLoaded() {
     loadingDiv.style.display = 'none';
     thumbDiv.style.opacity = '1';
+}
+
+function panMapToMarkers() {
+    let bounds = new google.maps.LatLngBounds();
+
+    if(userMarker && userMarker.position) {
+        bounds.extend(userMarker.position);
+    }
+
+    if(pin && pin.position) {
+        bounds.extend(pin.position);
+    }
+
+    myMap.fitBounds(bounds);
+    if (myMap.getZoom() >= 18) {
+        myMap.setZoom(18);
+    }
 }
