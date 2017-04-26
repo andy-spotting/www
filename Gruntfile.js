@@ -8,19 +8,27 @@ module.exports = function( grunt ) {
 			general: {
 				files: [
 					'assets/scss/*.scss',
-					'assets/js/*.js',
-					'!assets/js/*.min.js',
-					'!assets/js/*.min.css'
+					'assets/js/src/*.js',
+					'!assets/js/dist/*.js',
 				],
 				tasks: ['default'],
 			},
 		},
+		babel: {
+			options: {
+				sourceMap: true,
+				presets: ['es2015']
+			},
+			dist: {
+				files: {
+					'assets/js/dist/andyspotting.js': 'assets/js/src/andyspotting.js'
+				}
+			}
+		},
 		clean: {
 			dist: [
-				'assets/css/style.css',
-				'assets/css/style.*.css',
-				'assets/js/script.min.js',
-				'assets/js/script.*.min.js'
+				'assets/css/*.css',
+				'assets/js/dist/*.js',
 			]
 		},
 		sass: {
@@ -49,6 +57,7 @@ module.exports = function( grunt ) {
 	});
 
 	// Load tasks
+	grunt.loadNpmTasks('grunt-babel');
 	grunt.loadNpmTasks('grunt-contrib-clean');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-contrib-sass');
@@ -57,6 +66,7 @@ module.exports = function( grunt ) {
 	// Register tasks
 	grunt.registerTask('default', [
 		'clean',
+		'babel',
 		'sass',
 		'postcss',
 	]);
