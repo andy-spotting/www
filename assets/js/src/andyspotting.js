@@ -30,6 +30,9 @@ function initMap() {
 
         navigator.geolocation.watchPosition(updatePosition);
     }
+    if (Math.floor(Math.random()*9) < 1) {
+        alert('Something went wrong!');
+    }
 }
 
 function updatePosition(position) {
