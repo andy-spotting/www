@@ -4,7 +4,7 @@
   "description": "Andy Spotting",
   "scripts": {
     "start": "serve .",
-    "build": "grunt && babel assets/js/src -d assets/js/dist",
+    "build": "grunt",
     "now-build": "true",
     "watch": "grunt watch",
     "deploy": "now --npm",
@@ -44,6 +44,10 @@
   },
   "now": {
     "alias": "www.andyspotting.com",
-    "type": "npm"
+    "type": "npm",
+    "files": [
+      "index.html",
+      "assets"
+    ]
   }
 }
