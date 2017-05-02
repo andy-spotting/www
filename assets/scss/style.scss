@@ -100,7 +100,7 @@ body {
 }
 
 #thumbs {
-	width: 100%;
+	width: calc(100% - 100px);
 	height: $thumbBase;
 	transition: opacity .4s linear;
 	display: flex;
