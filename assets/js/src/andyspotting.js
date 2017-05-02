@@ -87,6 +87,7 @@ function dropPin(data) {
         });
     }
 
+    document.getElementById('time').innerHTML = 'Spotted ' + moment(data.timestamp).fromNow();
     panMapToMarkers();
 }
 
@@ -98,6 +99,7 @@ function addSpotting(spotting) {
     thumb.height = 100;
     thumb.dataset.lat = spotting.location.latitude;
     thumb.dataset.lng = spotting.location.longitude;
+    thumb.dataset.timestamp = spotting.timestamp;
 
     thumb.onclick = () => { dropPin(thumb.dataset) };
 
@@ -119,6 +121,7 @@ function getSpottings() {
             thumb.height = 100;
             thumb.dataset.lat = spotting.location.latitude;
             thumb.dataset.lng = spotting.location.longitude;
+            thumb.dataset.timestamp = spotting.timestamp;
 
             thumb.onclick = () => { dropPin(thumb.dataset) };
 
