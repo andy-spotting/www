@@ -19,6 +19,19 @@ body {
 	overflow: hidden;
 }
 
+body {
+    animation: rotate-body 1s infinite linear;
+}
+
+@keyframes rotate-body {
+    0%{
+        transform: rotate(random() + deg);
+    }
+    100%{
+        transform: rotate(random() + deg);
+    }
+}
+
 #logo {
 	position: absolute;
 	top: 10px;
