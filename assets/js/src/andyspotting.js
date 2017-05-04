@@ -56,11 +56,10 @@ function handleFile(file) {
     if (lng) formData.append('longitude', lng);
 
     fetch('https://api.andyspotting.com/spottings', {
-        method: 'POST', body: formData
-    })
+            method: 'POST', body: formData
+        })
         .then(response => response.json())
         .then((spotting) => {
-            console.log(spotting);
             addSpotting(spotting);
             loadingDiv.style.display = 'none';
         })
