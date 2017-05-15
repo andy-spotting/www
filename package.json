@@ -4,9 +4,9 @@
   "description": "Andy Spotting",
   "scripts": {
     "start": "serve .",
-    "build": "grunt",
-    "now-build": "true",
-    "watch": "grunt watch",
+    "build": "webpack",
+    "lint": "eslint src/js/*.js*",
+    "watch": "webpack --watch",
     "deploy": "now --npm",
     "alias": "now alias"
   },
@@ -23,30 +23,32 @@
     "node": ">= 7.9.0"
   },
   "devDependencies": {
-    "autoprefixer": "^6.6.0",
-    "babel-cli": "^6.24.1",
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
     "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^0.28.1",
     "eslint": "^3.19.0",
     "eslint-config-airbnb": "^14.1.0",
     "eslint-plugin-import": "^2.2.0",
-    "grunt": "^1.0.1",
-    "grunt-babel": "^6.0.0",
-    "grunt-cli": "^1.2.0",
-    "grunt-contrib-clean": "^1.1.0",
-    "grunt-contrib-watch": "^1.0.0",
-    "grunt-postcss": "^0.8.0",
-    "grunt-sass": "^2.0.0",
-    "now": "^4.11.2"
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-react": "^6.9.0",
+    "node-sass": "^4.5.2",
+    "now": "^5.2.3",
+    "sass-loader": "^6.0.5",
+    "style-loader": "^0.17.0",
+    "webpack": "^2.5.1"
   },
   "dependencies": {
-    "serve": "^5.1.4"
+    "google-map-react": "^0.24.0",
+    "moment": "^2.18.1",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "serve": "^5.1.5",
+    "whatwg-fetch": "^2.0.3"
   },
   "now": {
     "alias": "www.andyspotting.com",
-    "type": "npm",
-    "files": [
-      "index.html",
-      "assets"
-    ]
+    "type": "npm"
   }
 }
