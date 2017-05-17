@@ -1,36 +1,21 @@
 <!doctype html>
 <html class="no-js" lang="en-us">
 	<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<title>Andy Spotting</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="apple-touch-icon" href="/assets/img/touch-andy.jpg">
-	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" type="text/css" href="/assets/css/style.css">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Andy Spotting</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="apple-touch-icon" href="/img/touch-andy.jpg">
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	</head>
+
 	<body>
-		<div id="logo">
-			<img src="/assets/img/logo.png" width="300" alt="Andy Spotting"/>
-		</div>
-		<div id="map"></div>
-		<div id="time"></div>
-		<div id="rail">
-			<div id="loadingWrapper">
-				<div id="loading"></div>
-			</div>
-			<div id="thumbs"></div>
-			<div id="addBtnWrapper">
-				<div id="addBtn">
-					<i class="fa fa-camera"></i>
-					<input type="file" id="fileinput" onchange="handleFile(this.files[0])" />
-				</div>
-			</div>
+		<div id="root" style="position: absolute; top: 0; right: 0; bottom: 0; left: 0">
+			<div class="loading">Loading...</div>
 		</div>
 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.3/fetch.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
-	<script src="/assets/js/dist/andyspotting.js"></script>
-	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAqDtq-RrYVdlm8wSkjNAoSFLvd15_gVV4&callback=initMap"></script>
+		<script src="/dist/js/bundle.js"></script>
 	</body>
-	</html>
+</html>
