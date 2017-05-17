@@ -50,5 +50,3 @@ class AddButton extends React.Component {
 }
 
 export default AddButton;
-
-//
