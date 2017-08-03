@@ -31,7 +31,7 @@ class App extends React.Component {
 
   handleUploadComplete(newSpotting) {
     this.setState(prevState => ({
-      spottings: prevState.spottings.slice().unshift(newSpotting),
+      spottings: [newSpotting].concat(prevState.spottings),
       selectedSpotting: newSpotting,
     }));
   }
